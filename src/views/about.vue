@@ -45,7 +45,7 @@
                 </nav>
             </div>
             <div class="circle">
-                <div class="c1"></div>
+                <div class="c1" @click="wow"></div>
                 <div class="c2"></div>
             </div>
             <div class="konten">
@@ -72,9 +72,10 @@
 </template>
 
 <style scoped>
-a{
+a {
     color: black;
 }
+
 .container {
     z-index: 0;
     width: 100%;
@@ -90,6 +91,7 @@ a{
     top: -340px;
     left: -220px;
 }
+
 .navbar {
     border: 1px solid black;
     height: 50px;
@@ -201,11 +203,75 @@ img {
 </style>
 
 <script>
+import swal from 'sweetalert';
+
 // import navbar from '../components/navbar.vue'
 export default {
     name: 'app',
     components: {
         // navbar: navbar
+    },
+    mounted() {
+
+    },
+    methods: {
+        wow() {
+            swal({
+                icon: 'warning',
+                title: 'WOW?',
+                buttons: ['Tutup', 'Apa itu?'],
+                dangerMode: true
+            }).then(
+                (next) => {
+                    if (next) {
+                        swal({
+                            icon: 'warning',
+                            title: 'Pengen Tau Siapa Yang Buat Website Ini?',
+                            buttons: ['Ga juga', 'Siapa tuh?'],
+                            dangerMode: true
+                        }).then(
+                            (next) => {
+                                if (next) {
+                                    swal({
+                                        icon: 'warning',
+                                        title: 'Yakin??',
+                                        buttons: ['Ga deh', 'Yakin!'],
+                                        dangerMode: true
+                                    }).then(
+                                        (next) => {
+                                            if (next) {
+                                                window.open('https://www.instagram.com/r4dy.a', '_blank')
+                                            } else {
+                                                swal({
+                                                    icon: 'error',
+                                                    title: 'CIH',
+                                                    button: false,
+                                                    timer: 1000
+                                                })
+                                            }
+                                        }
+                                    )
+                                } else {
+                                    swal({
+                                        icon: 'error',
+                                        title: 'Lol Ya udah',
+                                        button: false,
+                                        timer: 1000
+                                    })
+                                }
+                            }
+                        )
+                    } else {
+                        swal({
+                            icon: 'error',
+                            title: 'Yodah',
+                            button: false,
+                            timer: 1000
+                        })
+                    }
+                }
+            )
+        }
     }
 }
 </script>

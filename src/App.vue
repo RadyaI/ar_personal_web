@@ -31,4 +31,5 @@ a {
 .fade-leave-active {
   transition: opacity 0.5s ease-out;
 }
+
 </style>
