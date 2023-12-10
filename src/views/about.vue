@@ -88,7 +88,7 @@ a{
     position: fixed;
     border: 1px solid yellow;
     top: -340px;
-    left: -240px;
+    left: -220px;
 }
 .navbar {
     border: 1px solid black;
